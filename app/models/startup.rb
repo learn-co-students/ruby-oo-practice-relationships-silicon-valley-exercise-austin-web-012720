@@ -3,8 +3,13 @@ class Startup
   attr_accessor :name, :domain
 
   @@all = []
+  #@@all is a collection of startup instances <name, founder, domain>
 
-  def initialize(name, founder)
+  def self.all
+    @@all
+  end
+
+  def initialize(name, founder, domain)
     @name = name
     @founder = founder
     @domain = domain
@@ -16,10 +21,6 @@ class Startup
     @domain = domain
     @name = name
     self
-  end
-
-  def self.all
-    @@all
   end
 
   def self.find_by_founder(founders)
