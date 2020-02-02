@@ -31,15 +31,24 @@ class VC
   end
 
   def funding_rounds
+    FundingRound.all.select {|round| round.vc == self}
   end
 
   def portfolio
+    #first line returns and array of all funding rounds for a specific investor
+    portfolio = FundingRound.all.select {|round| round.vc == self}
+    #this line will access the startup and return an array of only unique startups
+    portfolio.map {|round| round.startup}.uniq
   end
 
   def biggest_investment
+    #need help on this
+    self.funding_rounds.select do |round, investment|
+    end
   end
 
-  def invested
+  def invested(domain)
+    #need to finish this
   end
 
 end

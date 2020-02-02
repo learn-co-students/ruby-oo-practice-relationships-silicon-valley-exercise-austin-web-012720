@@ -53,10 +53,15 @@ class Startup
   end
 
   def investors
+    #returns an array of all the unique investors that have invested in a startup
      funding_rounds_found = FundingRound.all.select {|round| round.startup == self}
      funding_rounds_found.map {|round| round.vc}.uniq
   end
 
   def big_investors
+    self.investors.select do |investor|
+      VC.tres_commas_club.include?(investor)
+    end
   end
+  
 end
