@@ -49,6 +49,7 @@ class VC
 
   def invested(domain)
     #need to finish this
+    #help on what this is supposed to return
   end
 
 end
