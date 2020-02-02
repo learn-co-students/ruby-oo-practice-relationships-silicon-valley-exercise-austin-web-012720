@@ -45,16 +45,16 @@ class Startup
 
   def total_funds
     @sum_of_investments = 0
-     funding_rounds_found = FundingRound.all.select {|round| round.startup == self}
-     funding_rounds_found.each do |round|
+    funding_rounds_found = FundingRound.all.select {|round| round.startup == self}
+    funding_rounds_found.each do |round|
       @sum_of_investments += round.investment
-     end
+    end
     @sum_of_investments   
   end
 
   def investors
-    #not returning the investors
-    FundingRound.all.map {|round| round.vc == self}.uniq
+     funding_rounds_found = FundingRound.all.select {|round| round.startup == self}
+     funding_rounds_found.map {|round| round.vc}.uniq
   end
 
   def big_investors
