@@ -24,6 +24,10 @@ var1 = startup1.sign_contract(jim, "seed", 100)
 var2 = startup2.sign_contract(jilynn, "angel", 200)
 var3 = startup1.sign_contract(matt, "angel", 500)
 
+foo = jim.offer_contract(startup1, "angel", 500)
+
+#Should create a new funding round associated with a startup and vc
+
 
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line

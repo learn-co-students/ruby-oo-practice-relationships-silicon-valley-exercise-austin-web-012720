@@ -26,7 +26,8 @@ class VC
     end
   end
 
-  def offer_contract
+  def offer_contract(startup, type, investment)
+    FundingRound.new(startup, self, type, investment)
   end
 
   def funding_rounds
