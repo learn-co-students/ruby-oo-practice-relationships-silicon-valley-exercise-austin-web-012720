@@ -44,13 +44,11 @@ class Startup
   end
 
   def total_funds
-    #this is summing all the investments instead of selecting a specific startup...need to fix
-    #also it attached total_investment to the object...don't think is should be doing this
     @sum_of_investments = 0
-    FundingRound.all.select do |round|
-      round.startup == self
+     funding_rounds_found = FundingRound.all.select {|round| round.startup == self}
+     funding_rounds_found.each do |round|
       @sum_of_investments += round.investment
-    end
+     end
     @sum_of_investments   
   end
 
