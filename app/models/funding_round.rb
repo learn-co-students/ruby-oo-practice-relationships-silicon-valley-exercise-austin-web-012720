@@ -2,6 +2,7 @@ class FundingRound
   attr_reader :startup, :vc
   attr_accessor :type, :investment
 
+  #This is an array of all the funding rounds. It connects a startup with a vc
   @@all = []
 
   def self.all
@@ -14,11 +15,12 @@ class FundingRound
     @type = type
     @investment = investment.to_f
 
-    @@all << self
+    self.class.all << self
   end
 
-  def investment
-    @investment 
-  end
+  #I don't need this method because it is an attr_accessor
+  # def investment
+  #   @investment 
+  # end
 
 end

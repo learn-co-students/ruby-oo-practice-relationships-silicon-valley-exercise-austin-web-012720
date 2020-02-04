@@ -22,7 +22,7 @@ class VC
   def self.tres_commas_club
     #.select returns a new array of vc that are worth more than 1 billion
     self.all.select do |venturec|
-      venturec.total_worth >= 1000000000
+      venturec.total_worth > 1000000000
     end
   end
 
@@ -31,6 +31,7 @@ class VC
   end
 
   def funding_rounds
+    #this returns and array of all the funding rounds the investor is attached to
     FundingRound.all.select {|round| round.vc == self}
   end
 
@@ -42,14 +43,18 @@ class VC
   end
 
   def biggest_investment
-    #need help on this
-    self.funding_rounds.select do |round, investment|
-    end
+    #need to return the largest funding round from an investor
+    #map will return an array of the investments and .max finds the biggest_investment
+    funding_rounds.map {|round| round.investment}.max
   end
 
   def invested(domain)
-    #need to finish this
-    #help on what this is supposed to return
+    #this method returns the total amount invested in a startup by matching the domain name
+    matching_round = funding_rounds.select do |round|
+      #round.startup.domain goes through each round and accesses the startup and the domain associated with the startup 
+      round.startup.domain == domain
+    end
+    matching_round.map {|round| round.investment}.sum
   end
 
 end

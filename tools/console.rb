@@ -28,9 +28,10 @@ bar = jim.offer_contract(startup2, "seed", 200)
 contract1 = matt.offer_contract(startup3, "seed", 10000)
 contract2 = matt.offer_contract(startup3, "second", 200000)
 conract3 = matt.offer_contract(startup1, "seed", 700)
-
 #Should create a new funding round associated with a startup and vc
 
+
+how_much = jim.invested("domain@test.com")
 
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line

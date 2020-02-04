@@ -44,12 +44,12 @@ class Startup
   end
 
   def total_funds
-    @sum_of_investments = 0
+    sum_of_investments = 0
     funding_rounds_found = FundingRound.all.select {|round| round.startup == self}
     funding_rounds_found.each do |round|
-      @sum_of_investments += round.investment
+      sum_of_investments += round.investment
     end
-    @sum_of_investments   
+    sum_of_investments   
   end
 
   def investors
@@ -59,6 +59,7 @@ class Startup
   end
 
   def big_investors
+    #this checks if the investors invested in a startup are also in the array of investors in the club
     self.investors.select do |investor|
       VC.tres_commas_club.include?(investor)
     end
